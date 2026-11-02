@@ -17,7 +17,7 @@ import plotly.graph_objects as go
 # -----------------------------------------------------------------------------
 st.set_page_config(
     page_title="Real Estate Investment Advisor",
-    page_icon="🏢",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -169,16 +169,16 @@ with st.sidebar:
     nav_option = st.radio(
         "Select Module:",
         [
-            "🏢 Investment Advisor",
-            "🔍 Market Explorer & Search",
-            "📊 Comprehensive 20-Point EDA",
-            "🧪 MLflow Model Registry",
-            "💰 Mortgage & ROI Calculator"
+            " Investment Advisor",
+            " Market Explorer & Search",
+            " Comprehensive 20-Point EDA",
+            " MLflow Model Registry",
+            " Mortgage & ROI Calculator"
         ]
     )
 
     st.markdown("---")
-    st.markdown("### 📌 Project Metadata")
+    st.markdown("###  Project Metadata")
     st.markdown("**Domain:** Real Estate Analytics")
     st.markdown(f"**Records:** {len(df):,} properties")
     st.markdown(f"**Cities Tracked:** {df['City'].nunique()}")
@@ -190,7 +190,7 @@ with st.sidebar:
 # -----------------------------------------------------------------------------
 # MODULE 1: INVESTMENT ADVISOR (PREDICTION ENGINE)
 # -----------------------------------------------------------------------------
-if nav_option == "🏢 Investment Advisor":
+if nav_option == " Investment Advisor":
     st.markdown("""
     <div class="main-header">
         <h1>Real Estate Investment Advisor</h1>
@@ -198,12 +198,12 @@ if nav_option == "🏢 Investment Advisor":
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("### 📝 Enter Property Specifications")
+    st.markdown("###  Enter Property Specifications")
     
     col_input1, col_input2, col_input3 = st.columns(3)
 
     with col_input1:
-        st.subheader("📍 Location & Type")
+        st.subheader(" Location & Type")
         all_states = metadata.get("states", sorted(df['State'].unique().tolist()))
         state = st.selectbox("State", all_states, index=0)
         
@@ -222,11 +222,11 @@ if nav_option == "🏢 Investment Advisor":
         size_sqft = st.number_input("Property Size (in SqFt)", min_value=300, max_value=10000, value=1850, step=50)
 
     with col_input2:
-        st.subheader("💰 Pricing & Building Info")
+        st.subheader(" Pricing & Building Info")
         price_lakhs = st.number_input("Current Asking Price (in Lakhs INR)", min_value=5.0, max_value=2000.0, value=125.0, step=5.0)
         
         calculated_price_per_sqft = round((price_lakhs * 100000) / size_sqft, 2)
-        st.info(f"💡 Calculated Price/SqFt: **₹{calculated_price_per_sqft:,.2f} / SqFt**")
+        st.info(f"Note:  Calculated Price/SqFt: **INR {calculated_price_per_sqft:,.2f} / SqFt**")
 
         age_of_property = st.slider("Age of Property (Years)", min_value=0, max_value=50, value=4)
         total_floors = st.number_input("Total Floors in Building", min_value=1, max_value=60, value=15)
@@ -234,7 +234,7 @@ if nav_option == "🏢 Investment Advisor":
         furnished_status = st.selectbox("Furnished Status", ['Furnished', 'Semi-furnished', 'Unfurnished'], index=1)
 
     with col_input3:
-        st.subheader("🚇 Infrastructure & Amenities")
+        st.subheader(" Infrastructure & Amenities")
         public_transport = st.select_slider("Public Transport Accessibility", options=['Low', 'Medium', 'High'], value='High')
         nearby_schools = st.slider("Nearby Schools Rating / Density (1-10)", min_value=1, max_value=10, value=8)
         nearby_hospitals = st.slider("Nearby Hospitals Density (1-10)", min_value=1, max_value=10, value=7)
@@ -245,7 +245,7 @@ if nav_option == "🏢 Investment Advisor":
         availability_status = st.selectbox("Availability Status", ['Ready_to_Move', 'Under_Construction'], index=0)
 
     # Amenities checklist
-    st.markdown("##### 🏊 Select Available Amenities:")
+    st.markdown("#####  Select Available Amenities:")
     amenity_cols = st.columns(5)
     with amenity_cols[0]:
         has_gym = st.checkbox("Gymnasium", value=True)
@@ -263,7 +263,7 @@ if nav_option == "🏢 Investment Advisor":
     st.markdown("---")
 
     # Predict button
-    if st.button("🚀 Analyze Investment Potential & Forecast Future Price", type="primary", use_container_width=True):
+    if st.button(" Analyze Investment Potential & Forecast Future Price", type="primary", use_container_width=True):
         if classifier is None or regressor is None:
             st.error("Model files not found. Please ensure `src/train_models.py` has been executed.")
         else:
@@ -303,7 +303,7 @@ if nav_option == "🏢 Investment Advisor":
             cagr = (((reg_pred / price_lakhs) ** (1 / 5)) - 1) * 100
 
             # Display Results
-            st.markdown("## 📊 Investment Assessment Results")
+            st.markdown("##  Investment Assessment Results")
 
             res_col1, res_col2 = st.columns([1, 1])
 
@@ -311,7 +311,7 @@ if nav_option == "🏢 Investment Advisor":
                 if clf_pred == 1:
                     st.markdown(f"""
                     <div class="verdict-good">
-                        <h2 style="color: white; margin-bottom: 0.2rem;">🌟 RECOMMENDED INVESTMENT</h2>
+                        <h2 style="color: white; margin-bottom: 0.2rem;"> RECOMMENDED INVESTMENT</h2>
                         <h4 style="color: #a7f3d0; font-weight: 500;">High Potential Property</h4>
                         <p style="margin-top: 1rem; font-size: 1.2rem;">
                             Model Confidence: <strong>{clf_prob * 100:.1f}%</strong>
@@ -324,7 +324,7 @@ if nav_option == "🏢 Investment Advisor":
                 else:
                     st.markdown(f"""
                     <div class="verdict-bad">
-                        <h2 style="color: white; margin-bottom: 0.2rem;">⚠️ CAUTION / SUB-OPTIMAL</h2>
+                        <h2 style="color: white; margin-bottom: 0.2rem;"> CAUTION / SUB-OPTIMAL</h2>
                         <h4 style="color: #fecaca; font-weight: 500;">Lower Expected Return</h4>
                         <p style="margin-top: 1rem; font-size: 1.2rem;">
                             Model Confidence: <strong>{(1 - clf_prob) * 100:.1f}%</strong>
@@ -339,9 +339,9 @@ if nav_option == "🏢 Investment Advisor":
                 st.markdown(f"""
                 <div class="kpi-card">
                     <div class="kpi-title">5-Year Estimated Valuation</div>
-                    <div class="kpi-value" style="color: #0f766e;">₹{reg_pred:,.2f} Lakhs</div>
+                    <div class="kpi-value" style="color: #0f766e;">INR {reg_pred:,.2f} Lakhs</div>
                     <div style="margin-top: 0.5rem; color: #475569;">
-                        Current Price: ₹{price_lakhs:,.2f} Lakhs
+                        Current Price: INR {price_lakhs:,.2f} Lakhs
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
@@ -350,7 +350,7 @@ if nav_option == "🏢 Investment Advisor":
 
                 metric_sub1, metric_sub2, metric_sub3 = st.columns(3)
                 with metric_sub1:
-                    st.metric("Total Capital Gain", f"₹{capital_gain:,.2f} L", f"+{roi_pct:.1f}% ROI")
+                    st.metric("Total Capital Gain", f"INR {capital_gain:,.2f} L", f"+{roi_pct:.1f}% ROI")
                 with metric_sub2:
                     st.metric("5-Year CAGR", f"{cagr:.2f}%", "Annualized")
                 with metric_sub3:
@@ -358,13 +358,13 @@ if nav_option == "🏢 Investment Advisor":
                     diff_pct = ((calculated_price_per_sqft - city_median) / city_median) * 100
                     st.metric(
                         "Vs City Median / SqFt", 
-                        f"₹{calculated_price_per_sqft:,.0f}", 
+                        f"INR {calculated_price_per_sqft:,.0f}", 
                         f"{diff_pct:+.1f}% vs City"
                     )
 
             # Visual gauges & breakdown
             st.markdown("---")
-            st.markdown("### 📈 Valuation Trajectory & Radar Breakdown")
+            st.markdown("###  Valuation Trajectory & Radar Breakdown")
             chart_col1, chart_col2 = st.columns(2)
 
             with chart_col1:
@@ -378,7 +378,7 @@ if nav_option == "🏢 Investment Advisor":
                     y=projected_prices,
                     mode='lines+markers+text',
                     name='Projected Price',
-                    text=[f"₹{p:.1f}L" for p in projected_prices],
+                    text=[f"INR {p:.1f}L" for p in projected_prices],
                     textposition="top center",
                     line=dict(color='#0f766e', width=3),
                     marker=dict(size=8, color='#047857')
@@ -424,7 +424,7 @@ if nav_option == "🏢 Investment Advisor":
 # -----------------------------------------------------------------------------
 # MODULE 2: MARKET EXPLORER & PROPERTY SEARCH
 # -----------------------------------------------------------------------------
-elif nav_option == "🔍 Market Explorer & Search":
+elif nav_option == " Market Explorer & Search":
     st.markdown("""
     <div class="main-header">
         <h1>Market Explorer & Property Search</h1>
@@ -465,14 +465,14 @@ elif nav_option == "🔍 Market Explorer & Search":
         (filtered_df['Price_in_Lakhs'] <= budget_range[1])
     ]
 
-    st.markdown("### 📊 Market Snapshot")
+    st.markdown("###  Market Snapshot")
     kpi1, kpi2, kpi3, kpi4 = st.columns(4)
     with kpi1:
         st.metric("Total Properties Found", f"{len(filtered_df):,}")
     with kpi2:
-        st.metric("Average Price", f"₹{filtered_df['Price_in_Lakhs'].mean():.2f} L" if len(filtered_df) > 0 else "N/A")
+        st.metric("Average Price", f"INR {filtered_df['Price_in_Lakhs'].mean():.2f} L" if len(filtered_df) > 0 else "N/A")
     with kpi3:
-        st.metric("Median Price/SqFt", f"₹{filtered_df['Price_per_SqFt_INR'].median():,.0f}" if len(filtered_df) > 0 else "N/A")
+        st.metric("Median Price/SqFt", f"INR {filtered_df['Price_per_SqFt_INR'].median():,.0f}" if len(filtered_df) > 0 else "N/A")
     with kpi4:
         good_pct = (filtered_df['Good_Investment'].mean() * 100) if len(filtered_df) > 0 else 0
         st.metric("Good Investment Ratio", f"{good_pct:.1f}%")
@@ -506,7 +506,7 @@ elif nav_option == "🔍 Market Explorer & Search":
             )
             st.plotly_chart(fig_scatter, use_container_width=True)
 
-    st.markdown("### 📋 Filtered Properties Data View")
+    st.markdown("###  Filtered Properties Data View")
     display_cols = [
         'ID', 'State', 'City', 'Property_Type', 'BHK', 'Size_in_SqFt', 
         'Price_in_Lakhs', 'Price_per_SqFt_INR', 'Age_of_Property', 
@@ -518,7 +518,7 @@ elif nav_option == "🔍 Market Explorer & Search":
 # -----------------------------------------------------------------------------
 # MODULE 3: COMPREHENSIVE 20-POINT EDA
 # -----------------------------------------------------------------------------
-elif nav_option == "📊 Comprehensive 20-Point EDA":
+elif nav_option == " Comprehensive 20-Point EDA":
     st.markdown("""
     <div class="main-header">
         <h1>Comprehensive 20-Point Exploratory Data Analysis</h1>
@@ -527,10 +527,10 @@ elif nav_option == "📊 Comprehensive 20-Point EDA":
     """, unsafe_allow_html=True)
 
     eda_tab1, eda_tab2, eda_tab3, eda_tab4 = st.tabs([
-        "1–5: Price & Size Dynamics",
-        "6–10: Location Intelligence",
-        "11–15: Feature Relationships",
-        "16–20: Investment & Amenities"
+        "1-5: Price & Size Dynamics",
+        "6-10: Location Intelligence",
+        "11-15: Feature Relationships",
+        "16-20: Investment & Amenities"
     ])
 
     eda_dir = "outputs/eda_visualizations"
@@ -542,7 +542,7 @@ elif nav_option == "📊 Comprehensive 20-Point EDA":
         with col1:
             st.markdown("#### Q1: Distribution of Property Prices")
             st.image(f"{eda_dir}/01_price_distribution.png", use_container_width=True)
-            st.caption(f"**Key Finding:** Average property price is ₹{df['Price_in_Lakhs'].mean():.2f} Lakhs (Median: ₹{df['Price_in_Lakhs'].median():.2f} Lakhs) with a broad, healthy spread.")
+            st.caption(f"**Key Finding:** Average property price is INR {df['Price_in_Lakhs'].mean():.2f} Lakhs (Median: INR {df['Price_in_Lakhs'].median():.2f} Lakhs) with a broad, healthy spread.")
 
             st.markdown("#### Q3: Price per Sq Ft by Property Type")
             st.image(f"{eda_dir}/03_price_per_sqft_by_type.png", use_container_width=True)
@@ -643,7 +643,7 @@ elif nav_option == "📊 Comprehensive 20-Point EDA":
 # -----------------------------------------------------------------------------
 # MODULE 4: MLFLOW MODEL REGISTRY & BENCHMARKS
 # -----------------------------------------------------------------------------
-elif nav_option == "🧪 MLflow Model Registry":
+elif nav_option == " MLflow Model Registry":
     st.markdown("""
     <div class="main-header">
         <h1>MLflow Experiment Tracking & Model Registry</h1>
@@ -656,11 +656,11 @@ elif nav_option == "🧪 MLflow Model Registry":
     if os.path.exists(eval_csv_path):
         eval_df = pd.read_csv(eval_csv_path)
 
-        st.markdown("### 🏆 Model Comparison & Leaderboard")
+        st.markdown("### [Best]  Model Comparison & Leaderboard")
         st.dataframe(eval_df, use_container_width=True)
 
     st.markdown("---")
-    st.markdown("### 🔬 Diagnostic Artifacts")
+    st.markdown("###  Diagnostic Artifacts")
 
     diag_col1, diag_col2 = st.columns(2)
 
@@ -686,7 +686,7 @@ elif nav_option == "🧪 MLflow Model Registry":
 # -----------------------------------------------------------------------------
 # MODULE 5: MORTGAGE & ROI CALCULATOR
 # -----------------------------------------------------------------------------
-elif nav_option == "💰 Mortgage & ROI Calculator":
+elif nav_option == " Mortgage & ROI Calculator":
     st.markdown("""
     <div class="main-header">
         <h1>Mortgage & Real Estate ROI Simulator</h1>
@@ -720,9 +720,9 @@ elif nav_option == "💰 Mortgage & ROI Calculator":
         st.markdown(f"""
         <div class="kpi-card">
             <div class="kpi-title">Monthly Home Loan EMI</div>
-            <div class="kpi-value" style="color: #1e3a8a;">₹{emi_inr:,.0f} / mo</div>
+            <div class="kpi-value" style="color: #1e3a8a;">INR {emi_inr:,.0f} / mo</div>
             <div style="margin-top: 0.5rem; color: #64748b;">
-                Principal Loan: ₹{loan_amount_lakhs:.2f} Lakhs | Down Payment: ₹{down_payment_lakhs:.2f} Lakhs
+                Principal Loan: INR {loan_amount_lakhs:.2f} Lakhs | Down Payment: INR {down_payment_lakhs:.2f} Lakhs
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -732,15 +732,15 @@ elif nav_option == "💰 Mortgage & ROI Calculator":
         st.markdown(f"""
         <div class="kpi-card">
             <div class="kpi-title">Gross Monthly Rental Income</div>
-            <div class="kpi-value" style="color: #047857;">₹{monthly_rent_inr:,.0f} / mo</div>
+            <div class="kpi-value" style="color: #047857;">INR {monthly_rent_inr:,.0f} / mo</div>
             <div style="margin-top: 0.5rem; color: {'#047857' if net_monthly_cashflow >= 0 else '#dc2626'}; font-weight: 600;">
-                Net Cash Flow (Rent - EMI): ₹{net_monthly_cashflow:,.0f} / month
+                Net Cash Flow (Rent - EMI): INR {net_monthly_cashflow:,.0f} / month
             </div>
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown("---")
-    st.markdown("### 📊 5-Year Net Wealth Accumulation Projection")
+    st.markdown("###  5-Year Net Wealth Accumulation Projection")
 
     # 5-Year equity build
     projected_val_5y = prop_val_lakhs * ((1 + 0.08) ** 5)
@@ -751,10 +751,10 @@ elif nav_option == "💰 Mortgage & ROI Calculator":
 
     c1, c2, c3, c4 = st.columns(4)
     with c1:
-        st.metric("Projected 5Y Value", f"₹{projected_val_5y:.2f} L", "+₹" + f"{capital_appreciation_lakhs:.2f} L")
+        st.metric("Projected 5Y Value", f"INR {projected_val_5y:.2f} L", "+INR " + f"{capital_appreciation_lakhs:.2f} L")
     with c2:
-        st.metric("Total 5Y Rental Inflow", f"₹{total_rent_5y_lakhs:.2f} L")
+        st.metric("Total 5Y Rental Inflow", f"INR {total_rent_5y_lakhs:.2f} L")
     with c3:
-        st.metric("Total 5Y EMI Outflow", f"₹{total_emi_5y_lakhs:.2f} L")
+        st.metric("Total 5Y EMI Outflow", f"INR {total_emi_5y_lakhs:.2f} L")
     with c4:
-        st.metric("Net 5Y Profit", f"₹{net_profit_5y:.2f} L", f"{'Profitable' if net_profit_5y > 0 else 'Deficit'}")
+        st.metric("Net 5Y Profit", f"INR {net_profit_5y:.2f} L", f"{'Profitable' if net_profit_5y > 0 else 'Deficit'}")

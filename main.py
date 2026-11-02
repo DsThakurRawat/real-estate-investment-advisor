@@ -282,7 +282,7 @@ async def predict_property(prop: PropertyInput):
         "Possession Safety": safe_score
     }
 
-    verdict = "🌟 RECOMMENDED INVESTMENT" if clf_pred == 1 else "⚠️ CAUTION / SUB-OPTIMAL"
+    verdict = "RECOMMENDED INVESTMENT" if clf_pred == 1 else "CAUTION / SUB-OPTIMAL"
 
     return PredictionResult(
         is_good_investment=bool(clf_pred == 1),

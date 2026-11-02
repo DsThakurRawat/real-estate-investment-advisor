@@ -80,7 +80,7 @@ def run_all_tests():
     pred_res_good = test_endpoint("Prediction - High Potential Listing", f"{BASE_URL}/predict", method="POST", data=prop_good)
     assert pred_res_good is not None, "Predict good failed"
     print(f"  Verdict: {pred_res_good['verdict']} (Confidence: {pred_res_good['confidence_score_pct']}%)")
-    print(f"  Current Price: ₹{pred_res_good['current_price_lakhs']}L -> 5Y Price: ₹{pred_res_good['estimated_future_price_5y_lakhs']}L (ROI: +{pred_res_good['expected_5y_roi_pct']}%)")
+    print(f"  Current Price: INR {pred_res_good['current_price_lakhs']}L -> 5Y Price: INR {pred_res_good['estimated_future_price_5y_lakhs']}L (ROI: +{pred_res_good['expected_5y_roi_pct']}%)")
 
     # 5. Predict Endpoint - Property 2 (Overpriced / Sub-optimal)
     prop_bad = {
@@ -107,7 +107,7 @@ def run_all_tests():
     pred_res_bad = test_endpoint("Prediction - Overpriced Listing", f"{BASE_URL}/predict", method="POST", data=prop_bad)
     assert pred_res_bad is not None, "Predict bad failed"
     print(f"  Verdict: {pred_res_bad['verdict']} (Confidence: {pred_res_bad['confidence_score_pct']}%)")
-    print(f"  Current Price: ₹{pred_res_bad['current_price_lakhs']}L -> 5Y Price: ₹{pred_res_bad['estimated_future_price_5y_lakhs']}L")
+    print(f"  Current Price: INR {pred_res_bad['current_price_lakhs']}L -> 5Y Price: INR {pred_res_bad['estimated_future_price_5y_lakhs']}L")
 
     # 6. Batch Predict
     batch_req = {"properties": [prop_good, prop_bad]}

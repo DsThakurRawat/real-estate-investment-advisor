@@ -468,26 +468,26 @@
     <!-- Header -->
     <header>
         <div class="brand">
-            <div class="brand-icon">🏢</div>
+            <div class="brand-icon"></div>
             <div class="brand-text">
                 <h1>Real Estate Investment Advisor</h1>
                 <p>FastAPI High-Performance Machine Learning & Valuation Platform</p>
             </div>
         </div>
         <div class="header-actions">
-            <a href="/docs" target="_blank" class="btn-docs">⚡ OpenAPI / Swagger Docs</a>
-            <a href="/health" target="_blank" class="btn-docs" style="border-color: rgba(16, 185, 129, 0.4); color: #34d399; background: rgba(16, 185, 129, 0.1);">❤️ API Health</a>
+            <a href="/docs" target="_blank" class="btn-docs"> OpenAPI / Swagger Docs</a>
+            <a href="/health" target="_blank" class="btn-docs" style="border-color: rgba(16, 185, 129, 0.4); color: #34d399; background: rgba(16, 185, 129, 0.1);"> API Health</a>
         </div>
     </header>
 
     <div class="container">
         <!-- Navigation Tabs -->
         <div class="nav-tabs">
-            <button class="nav-tab active" onclick="switchTab('advisor')">🏢 Investment Advisor</button>
-            <button class="nav-tab" onclick="switchTab('explorer')">🔍 Market Explorer (250k)</button>
-            <button class="nav-tab" onclick="switchTab('eda')">📊 20-Point EDA Hub</button>
-            <button class="nav-tab" onclick="switchTab('mlflow')">🧪 MLflow Model Registry</button>
-            <button class="nav-tab" onclick="switchTab('calculator')">💰 Mortgage & ROI Calculator</button>
+            <button class="nav-tab active" onclick="switchTab('advisor')"> Investment Advisor</button>
+            <button class="nav-tab" onclick="switchTab('explorer')"> Market Explorer (250k)</button>
+            <button class="nav-tab" onclick="switchTab('eda')"> 20-Point EDA Hub</button>
+            <button class="nav-tab" onclick="switchTab('mlflow')"> MLflow Model Registry</button>
+            <button class="nav-tab" onclick="switchTab('calculator')"> Mortgage & ROI Calculator</button>
         </div>
 
         <!-- TAB 1: INVESTMENT ADVISOR -->
@@ -495,7 +495,7 @@
             <div class="grid-2">
                 <!-- Input Form -->
                 <div class="card">
-                    <div class="card-title">📝 Property Specifications</div>
+                    <div class="card-title"> Property Specifications</div>
                     <form id="advisor-form" onsubmit="handlePredict(event)">
                         <div class="grid-2">
                             <div class="form-group">
@@ -545,8 +545,8 @@
                         </div>
 
                         <div style="background: rgba(14, 165, 233, 0.08); padding: 0.6rem 0.8rem; border-radius: 8px; border: 1px solid rgba(14, 165, 233, 0.2); margin-bottom: 1.25rem;">
-                            <span style="font-size: 0.85rem; color: #38bdf8;">💡 Calculated Price / SqFt: </span>
-                            <strong id="display-psqft" style="color: #ffffff; font-size: 0.95rem;">₹6,756.76 / SqFt</strong>
+                            <span style="font-size: 0.85rem; color: #38bdf8;">Note:  Calculated Price / SqFt: </span>
+                            <strong id="display-psqft" style="color: #ffffff; font-size: 0.95rem;">INR 6,756.76 / SqFt</strong>
                         </div>
 
                         <div class="grid-2">
@@ -622,7 +622,7 @@
                         </div>
 
                         <button type="submit" id="btn-predict" class="btn-primary">
-                            🚀 Analyze Investment Opportunity
+                             Analyze Investment Opportunity
                         </button>
                     </form>
                 </div>
@@ -630,7 +630,7 @@
                 <!-- Live Results -->
                 <div>
                     <div id="results-placeholder" class="card" style="text-align: center; padding: 4rem 2rem;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;"></div>
                         <h3 style="color: #ffffff; margin-bottom: 0.5rem;">Ready for Analysis</h3>
                         <p style="color: var(--text-muted); font-size: 0.9rem;">
                             Configure property specifications on the left and submit to trigger our dual Machine Learning pipeline.
@@ -640,7 +640,7 @@
                     <div id="results-container" style="display: none;">
                         <!-- Verdict Banner -->
                         <div id="verdict-card" class="verdict-banner">
-                            <div id="verdict-title" class="verdict-title">🌟 RECOMMENDED INVESTMENT</div>
+                            <div id="verdict-title" class="verdict-title"> RECOMMENDED INVESTMENT</div>
                             <div id="verdict-subtitle" style="font-size: 0.95rem; opacity: 0.9;">High Conviction Opportunity</div>
                             <div style="margin-top: 0.8rem; font-size: 1.1rem; font-weight: 700;">
                                 Confidence Score: <span id="verdict-confidence">96.4%</span>
@@ -651,19 +651,19 @@
                         <div class="grid-2" style="margin-bottom: 1.5rem;">
                             <div class="stat-card">
                                 <div class="stat-label">5-Year Projected Valuation</div>
-                                <div id="res-future-price" class="stat-val" style="color: #38bdf8;">₹0.00 L</div>
-                                <div id="res-current-price" class="stat-sub">Current: ₹0.00 L</div>
+                                <div id="res-future-price" class="stat-val" style="color: #38bdf8;">INR 0.00 L</div>
+                                <div id="res-current-price" class="stat-sub">Current: INR 0.00 L</div>
                             </div>
                             <div class="stat-card">
                                 <div class="stat-label">Projected Capital Gain</div>
-                                <div id="res-gain" class="stat-val" style="color: #34d399;">+₹0.00 L</div>
+                                <div id="res-gain" class="stat-val" style="color: #34d399;">+INR 0.00 L</div>
                                 <div id="res-roi" class="stat-sub">+0.0% Expected ROI</div>
                             </div>
                         </div>
 
                         <!-- Charts Grid -->
                         <div class="card">
-                            <div class="card-title">📈 5-Year Growth Curve & Investment Dimensions</div>
+                            <div class="card-title"> 5-Year Growth Curve & Investment Dimensions</div>
                             <div style="height: 260px; margin-bottom: 1.5rem;">
                                 <canvas id="growthChart"></canvas>
                             </div>
@@ -679,7 +679,7 @@
         <!-- TAB 2: MARKET EXPLORER -->
         <div id="tab-explorer" class="tab-content">
             <div class="card">
-                <div class="card-title">🔍 Real Estate Database Explorer (250,000 Properties)</div>
+                <div class="card-title"> Real Estate Database Explorer (250,000 Properties)</div>
                 <div class="grid-4" style="margin-bottom: 1.25rem;">
                     <div>
                         <label class="form-label">City</label>
@@ -739,7 +739,7 @@
         <!-- TAB 3: 20-POINT EDA GALLERY -->
         <div id="tab-eda" class="tab-content">
             <div class="card">
-                <div class="card-title">📊 Comprehensive 20-Point Exploratory Data Analysis</div>
+                <div class="card-title"> Comprehensive 20-Point Exploratory Data Analysis</div>
                 <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
                     Full visualization and statistical findings for all 20 questions specified in the project requirements.
                 </p>
@@ -752,7 +752,7 @@
         <!-- TAB 4: MLFLOW MODEL REGISTRY -->
         <div id="tab-mlflow" class="tab-content">
             <div class="card">
-                <div class="card-title">🧪 MLflow Experiment Tracking & Benchmarks</div>
+                <div class="card-title"> MLflow Experiment Tracking & Benchmarks</div>
                 <div class="table-responsive" style="margin-bottom: 2rem;">
                     <table>
                         <thead>
@@ -790,7 +790,7 @@
                         <img src="/static/outputs/regression_actual_vs_predicted.png" class="gallery-img" alt="Actual vs Predicted">
                         <div class="gallery-caption">
                             <div class="gallery-title">Regression Parity Plot</div>
-                            <div class="gallery-text">Tight alignment along the 45-degree identity line confirming R² = 0.9999.</div>
+                            <div class="gallery-text">Tight alignment along the 45-degree identity line confirming R^2 = 0.9999.</div>
                         </div>
                     </div>
                     <div class="gallery-item">
@@ -808,7 +808,7 @@
         <div id="tab-calculator" class="tab-content">
             <div class="grid-2">
                 <div class="card">
-                    <div class="card-title">💰 Financial Assumptions</div>
+                    <div class="card-title"> Financial Assumptions</div>
                     <div class="form-group">
                         <label class="form-label">Property Valuation (Lakhs INR)</label>
                         <input type="number" id="calc-val" class="form-control" value="100" min="10" max="2000" oninput="runFinancialSim()">
@@ -832,29 +832,29 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-title">📊 Cashflow & Wealth Simulation</div>
+                    <div class="card-title"> Cashflow & Wealth Simulation</div>
                     <div class="grid-2" style="margin-bottom: 1.5rem;">
                         <div class="stat-card">
                             <div class="stat-label">Monthly EMI</div>
-                            <div id="calc-emi" class="stat-val" style="color: #38bdf8;">₹0 / mo</div>
-                            <div id="calc-loan-amt" class="stat-sub">Principal Loan: ₹0 L</div>
+                            <div id="calc-emi" class="stat-val" style="color: #38bdf8;">INR 0 / mo</div>
+                            <div id="calc-loan-amt" class="stat-sub">Principal Loan: INR 0 L</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-label">Monthly Rent</div>
-                            <div id="calc-rent" class="stat-val" style="color: #34d399;">₹0 / mo</div>
-                            <div id="calc-net-cash" class="stat-sub">Net Monthly: ₹0 / mo</div>
+                            <div id="calc-rent" class="stat-val" style="color: #34d399;">INR 0 / mo</div>
+                            <div id="calc-net-cash" class="stat-sub">Net Monthly: INR 0 / mo</div>
                         </div>
                     </div>
 
                     <div class="grid-2">
                         <div class="stat-card">
                             <div class="stat-label">Projected 5Y Value</div>
-                            <div id="calc-5y-val" class="stat-val" style="color: #fbbf24;">₹0 L</div>
-                            <div id="calc-cap-gain" class="stat-sub">+₹0 L Appreciation</div>
+                            <div id="calc-5y-val" class="stat-val" style="color: #fbbf24;">INR 0 L</div>
+                            <div id="calc-cap-gain" class="stat-sub">+INR 0 L Appreciation</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-label">Net 5Y Profit</div>
-                            <div id="calc-net-profit" class="stat-val" style="color: #34d399;">₹0 L</div>
+                            <div id="calc-net-profit" class="stat-val" style="color: #34d399;">INR 0 L</div>
                             <div class="stat-sub">Net Total Return</div>
                         </div>
                     </div>
@@ -870,7 +870,7 @@
         let radarChartInstance = null;
 
         const EDA_ITEMS = [
-            { id: "01", title: "Q1: Distribution of Property Prices", file: "01_price_distribution.png", desc: "Prices range from ₹10L to ₹500L with mean ₹254.59L and median ₹254.50L." },
+            { id: "01", title: "Q1: Distribution of Property Prices", file: "01_price_distribution.png", desc: "Prices range from INR 10L to INR 500L with mean INR 254.59L and median INR 254.50L." },
             { id: "02", title: "Q2: Distribution of Property Sizes", file: "02_size_distribution.png", desc: "Sizes span 500 to 5,000 SqFt with balanced spread across 1 to 5 BHKs." },
             { id: "03", title: "Q3: Price/SqFt by Property Type", file: "03_price_per_sqft_by_type.png", desc: "Villas command the highest premium per sqft over Independent Houses & Apartments." },
             { id: "04", title: "Q4: Size vs. Price Relationship", file: "04_size_vs_price.png", desc: "Positive linear scaling between property size and overall ticket valuation." },
@@ -962,7 +962,7 @@
             const price = parseFloat(document.getElementById('price_lakhs').value) || 0;
             const size = parseFloat(document.getElementById('size_sqft').value) || 1;
             const psqft = (price * 100000) / size;
-            document.getElementById('display-psqft').textContent = `₹${psqft.toLocaleString('en-IN', {maximumFractionDigits: 2})} / SqFt`;
+            document.getElementById('display-psqft').textContent = `INR ${psqft.toLocaleString('en-IN', {maximumFractionDigits: 2})} / SqFt`;
         }
 
         function switchTab(tabName) {
@@ -1023,7 +1023,7 @@
             } catch (err) {
                 alert("Prediction request failed: " + err);
             } finally {
-                btn.innerHTML = '🚀 Analyze Investment Opportunity';
+                btn.innerHTML = ' Analyze Investment Opportunity';
                 btn.disabled = false;
             }
         }
@@ -1039,19 +1039,19 @@
 
             if (data.is_good_investment) {
                 card.className = 'verdict-banner verdict-good';
-                title.textContent = '🌟 RECOMMENDED INVESTMENT';
+                title.textContent = ' RECOMMENDED INVESTMENT';
                 subtitle.textContent = 'High Potential Property with Robust Value Drivers';
                 conf.textContent = `${data.confidence_score_pct}% Good Investment`;
             } else {
                 card.className = 'verdict-banner verdict-bad';
-                title.textContent = '⚠️ CAUTION / SUB-OPTIMAL';
+                title.textContent = ' CAUTION / SUB-OPTIMAL';
                 subtitle.textContent = 'Overpriced or Weak Local Growth Drivers';
                 conf.textContent = `${(100 - data.confidence_score_pct).toFixed(1)}% High Risk`;
             }
 
-            document.getElementById('res-future-price').textContent = `₹${data.estimated_future_price_5y_lakhs.toFixed(2)} L`;
-            document.getElementById('res-current-price').textContent = `Current: ₹${data.current_price_lakhs.toFixed(2)} L`;
-            document.getElementById('res-gain').textContent = `+₹${data.projected_capital_gain_lakhs.toFixed(2)} L`;
+            document.getElementById('res-future-price').textContent = `INR ${data.estimated_future_price_5y_lakhs.toFixed(2)} L`;
+            document.getElementById('res-current-price').textContent = `Current: INR ${data.current_price_lakhs.toFixed(2)} L`;
+            document.getElementById('res-gain').textContent = `+INR ${data.projected_capital_gain_lakhs.toFixed(2)} L`;
             document.getElementById('res-roi').textContent = `+${data.expected_5y_roi_pct}% ROI (${data.cagr_pct}% CAGR)`;
 
             // Render Charts
@@ -1150,7 +1150,7 @@
                         <td><span style="color:#fbbf24;">${m.Metric_3_Name}:</span> ${m.Metric_3_Value}</td>
                         <td>
                             <span class="badge ${isWinner ? 'badge-success' : 'badge-danger'}">
-                                ${isWinner ? '🥇 Production Selected' : 'Candidate'}
+                                ${isWinner ? '[Best]  Production Selected' : 'Candidate'}
                             </span>
                         </td>
                     `;
@@ -1186,12 +1186,12 @@
                         <td>${p.Property_Type}</td>
                         <td>${p.BHK} BHK</td>
                         <td>${p.Size_in_SqFt}</td>
-                        <td>₹${p.Price_in_Lakhs.toFixed(2)} L</td>
-                        <td>₹${p.Price_per_SqFt_INR.toLocaleString()}</td>
-                        <td style="color:#38bdf8;">₹${p.Future_Price_5Y.toFixed(2)} L</td>
+                        <td>INR ${p.Price_in_Lakhs.toFixed(2)} L</td>
+                        <td>INR ${p.Price_per_SqFt_INR.toLocaleString()}</td>
+                        <td style="color:#38bdf8;">INR ${p.Future_Price_5Y.toFixed(2)} L</td>
                         <td>
                             <span class="badge ${p.Good_Investment === 1 ? 'badge-success' : 'badge-danger'}">
-                                ${p.Good_Investment === 1 ? '🌟 Good' : '⚠️ Caution'}
+                                ${p.Good_Investment === 1 ? ' Good' : ' Caution'}
                             </span>
                         </td>
                     `;
@@ -1224,13 +1224,13 @@
             const capGain = projected5YVal - val;
             const netProfit5Y = capGain + totalRent5Y - totalEmi5Y;
 
-            document.getElementById('calc-emi').textContent = `₹${Math.round(emiINR).toLocaleString()} / mo`;
-            document.getElementById('calc-loan-amt').textContent = `Loan: ₹${loanAmtLakhs.toFixed(1)} L (${100 - downPct}%)`;
-            document.getElementById('calc-rent').textContent = `₹${Math.round(monthlyRentINR).toLocaleString()} / mo`;
-            document.getElementById('calc-net-cash').textContent = `Net Cash: ₹${Math.round(netCashINR).toLocaleString()} / mo`;
-            document.getElementById('calc-5y-val').textContent = `₹${projected5YVal.toFixed(2)} L`;
-            document.getElementById('calc-cap-gain').textContent = `+₹${capGain.toFixed(2)} L Capital Gain`;
-            document.getElementById('calc-net-profit').textContent = `₹${netProfit5Y.toFixed(2)} L`;
+            document.getElementById('calc-emi').textContent = `INR ${Math.round(emiINR).toLocaleString()} / mo`;
+            document.getElementById('calc-loan-amt').textContent = `Loan: INR ${loanAmtLakhs.toFixed(1)} L (${100 - downPct}%)`;
+            document.getElementById('calc-rent').textContent = `INR ${Math.round(monthlyRentINR).toLocaleString()} / mo`;
+            document.getElementById('calc-net-cash').textContent = `Net Cash: INR ${Math.round(netCashINR).toLocaleString()} / mo`;
+            document.getElementById('calc-5y-val').textContent = `INR ${projected5YVal.toFixed(2)} L`;
+            document.getElementById('calc-cap-gain').textContent = `+INR ${capGain.toFixed(2)} L Capital Gain`;
+            document.getElementById('calc-net-profit').textContent = `INR ${netProfit5Y.toFixed(2)} L`;
         }
 
         window.onload = init;

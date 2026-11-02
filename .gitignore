@@ -1,0 +1,25 @@
+# Virtual Environment
+venv/
+.env
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Intermediate Drive Downloads
+drive_download/
+
+# Large raw & processed datasets (>40MB - download via python src/download_data.py)
+data/raw/india_housing_prices.csv
+data/processed/cleaned_housing_data.csv
+
+# Large MLflow raw model dumps (>280MB - SQLite tracking db mlflow.db is tracked)
+mlruns/
+.trash/
+
+# OS specific
+.DS_Store
+Thumbs.db

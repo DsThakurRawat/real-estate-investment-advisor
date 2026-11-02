@@ -1,0 +1,7 @@
+Task,Model,Metric_1_Name,Metric_1_Value,Metric_2_Name,Metric_2_Value,Metric_3_Name,Metric_3_Value
+Classification,Random_Forest_Classifier,Accuracy,0.9266,F1_Score,0.9289,ROC_AUC,0.9857
+Classification,Hist_Gradient_Boosting_Classifier,Accuracy,0.9921,F1_Score,0.9922,ROC_AUC,0.9994
+Classification,Logistic_Regression,Accuracy,0.841,F1_Score,0.8423,ROC_AUC,0.9243
+Regression,Random_Forest_Regressor,MAE,9.6021,RMSE,12.7997,R2_Score,0.9964
+Regression,Hist_Gradient_Boosting_Regressor,MAE,1.8383,RMSE,2.4819,R2_Score,0.9999
+Regression,Ridge_Regression,MAE,7.7962,RMSE,10.4436,R2_Score,0.9976

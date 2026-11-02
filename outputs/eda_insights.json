@@ -1,0 +1,64 @@
+{
+    "Q1_price_distribution": {
+        "mean": 254.58685404,
+        "median": 253.87,
+        "min": 10.0,
+        "max": 500.0,
+        "std": 141.349921072615,
+        "insight": "Property prices range from 10 to 500 Lakhs with a uniform-to-mildly skewed distribution."
+    },
+    "Q2_size_distribution": {
+        "mean": 2749.813216,
+        "median": 2747.0,
+        "min": 500.0,
+        "max": 5000.0,
+        "insight": "Property areas span from 500 to 5,000 SqFt with a balanced distribution across configurations."
+    },
+    "Q3_price_by_type": {
+        "Apartment": 13047.32,
+        "Independent House": 13102.05,
+        "Villa": 13025.61
+    },
+    "Q4_size_price_corr": {
+        "correlation": -0.0025,
+        "insight": "Pearson correlation between size and price is -0.00."
+    },
+    "Q6_top_states_psqft": {
+        "Karnataka": 13252.2,
+        "Andhra Pradesh": 13201.58,
+        "Uttar Pradesh": 13142.52,
+        "Tamil Nadu": 13132.42,
+        "Telangana": 13093.1
+    },
+    "Q7_top_cities_price": {
+        "Bangalore": 258.46,
+        "Surat": 258.08,
+        "Kochi": 257.42,
+        "Gaya": 257.05,
+        "Mangalore": 256.92,
+        "Dehradun": 256.89,
+        "Mysore": 256.85,
+        "Chennai": 256.83,
+        "Hyderabad": 256.59,
+        "Coimbatore": 256.5,
+        "Bhopal": 256.5,
+        "Pune": 256.5,
+        "Noida": 256.29,
+        "Lucknow": 256.21,
+        "Vishakhapatnam": 255.77
+    },
+    "Q14_furnished_price": {
+        "Furnished": 254.45,
+        "Semi-furnished": 254.33,
+        "Unfurnished": 254.98
+    },
+    "Q16_owner_types": {
+        "Broker": 83479,
+        "Owner": 83268,
+        "Builder": 83253
+    },
+    "Q18_parking_avg_price": {
+        "No": 254.43,
+        "Yes": 254.75
+    }
+}
